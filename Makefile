@@ -12,9 +12,9 @@
 
 NAME			=	libftprintf.a
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -gdwarf-4
 RM				=	rm -rf
-SRC 			=	ft_printf
+SRC 			=	src/ft_printf
 
 SRC_A			=	$(addsuffix .c, ${SRC})
 
@@ -22,15 +22,19 @@ OBJ				=	$(SRC_A:.c=.o)
 
 all:			$(NAME)
 
-$(NAME):		$(OBJ) 
+lib :
+				make -C libft/
+				cp -rf libft/libft.a $(NAME)
+
+$(NAME):		lib $(OBJ) 
 					ar -rc $(NAME) $(OBJ)
 
 clean:
-					$(RM) $(OBJ)
+					$(RM) $(OBJ) libft/*.o
 
 fclean: 		clean
 					$(RM) $(NAME)
 
 re:				fclean all
 
-.PHONY: 		all clean fclean re
+.PHONY: 		all clean fclean re lib
