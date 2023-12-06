@@ -1,46 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgayout <mgayout@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 11:41:29 by mgayout           #+#    #+#             */
-/*   Updated: 2023/11/23 11:41:29 by mgayout          ###   ########.fr       */
+/*   Created: 2023/12/05 16:12:53 by mgayout           #+#    #+#             */
+/*   Updated: 2023/12/05 16:12:53 by mgayout          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Write a number.*/
-
 #include "libft.h"
-#include <unistd.h>
 
-int	ft_putnbr_fd(int n, int fd)
+size_t	ft_strlen(const char *s)
 {
-	char	intmin[] = "-2147483648";
-	int			i;
-	int			j;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	if (n == -2147483648)
-		return (ft_putstr_fd(intmin, fd));
-	else if (n < 0)
-	{
-		if (ft_putchar_fd('-', fd) == -1)
-			return (-1);
-		n = -n;
+	while (s[i])
 		i++;
-	}
-	if (n > 9)
-	{
-		j = ft_putnbr_fd(n / 10, fd);
-		if (j == -1)
-			return (-1);
-		i += j;
-	}
-	if (ft_putchar_fd(n % 10 + '0', fd) == - 1)
-		return (-1);
-	i++;
 	return (i);
 }

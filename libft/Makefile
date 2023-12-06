@@ -14,7 +14,7 @@ NAME			=	libft.a
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
-SRC 			=	ft_putchar_fd ft_putstr_fd ft_putnbr_fd
+SRC 			=	ft_putchar_fd ft_putstr_fd ft_putnbr_fd ft_strlen
 
 SRC_A			=	$(addsuffix .c, ${SRC})
 

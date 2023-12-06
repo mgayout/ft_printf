@@ -17,15 +17,8 @@
 
 int	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
+	char	str[]="(null)";
 	if (!s)
-		return (-1);
-	while (*s)
-	{
-		write(fd, s + i, 1);
-		i++;
-	}
-	return (i);
+		return (ft_putstr_fd(str, fd));
+	return (write(fd, s, ft_strlen(s)));
 }
