@@ -17,14 +17,13 @@
 
 int	ft_putnbr_fd(int n, int fd)
 {
-	char	intmin[] = "-2147483648";
 	int			i;
 	int			j;
 
 	i = 0;
 	j = 0;
 	if (n == -2147483648)
-		return (ft_putstr_fd(intmin, fd));
+		return (ft_putstr_fd("-2147483648", fd));
 	else if (n < 0)
 	{
 		if (ft_putchar_fd('-', fd) == -1)
@@ -39,7 +38,7 @@ int	ft_putnbr_fd(int n, int fd)
 			return (-1);
 		i += j;
 	}
-	if (ft_putchar_fd(n % 10 + '0', fd) == - 1)
+	if (ft_putchar_fd(n % 10 + '0', fd) == -1)
 		return (-1);
 	i++;
 	return (i);

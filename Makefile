@@ -33,7 +33,7 @@ clean:
 					$(RM) $(OBJ) libft/*.o
 
 fclean: 		clean
-					$(RM) $(NAME)
+					$(RM) $(NAME) libft/libft.a
 
 re:				fclean all
 

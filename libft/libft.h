@@ -13,8 +13,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
-# include <string.h>
+# include <unistd.h>
 
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
