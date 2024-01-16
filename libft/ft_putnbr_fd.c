@@ -10,11 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Write a number.*/
-
 #include "libft.h"
-#include <unistd.h>
 
+/*Write a number.*/
 int	ft_putnbr_fd(int n, int fd)
 {
 	int			i;

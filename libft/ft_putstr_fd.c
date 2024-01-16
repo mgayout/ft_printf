@@ -10,11 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Write a string.*/
-
 #include "libft.h"
-#include <unistd.h>
 
+/*Write a string.*/
 int	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)

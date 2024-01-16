@@ -12,7 +12,7 @@
 
 NAME			=	libftprintf.a
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror -gdwarf-4
+CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 SRC 			=	src/ft_printf
 
@@ -37,4 +37,4 @@ fclean: 		clean
 
 re:				fclean all
 
-.PHONY: 		all clean fclean re lib
+.PHONY: 		all clean fclean re

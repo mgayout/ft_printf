@@ -12,7 +12,6 @@
 
 #include "../ft_printf.h"
 #include "../libft/libft.h"
-#include <stdio.h>
 #include <stdarg.h>
 
 int	ft_printf2(char *format, va_list args);
@@ -120,22 +119,36 @@ int	ft_putnbr_unsigned(unsigned int n, const int fd)
 	size++;
 	return (size);
 }
+
+# include <stdio.h>
+
+int main (void)
+{
+	ft_printf(" %p \n", 0);
+	printf(" %p \n", (void *)0);
+	return (0);
+}
 /*
 int main (void)
 {
-	const char format[]=" %p %p ";
-	long int	n;
-	long int	m;
+	const char format[]=" %c / %s / %d %d / %i %i /
+	 %u %u / %x %x / %X %X / %p %p / %% \n";
+	int		c = '4';
+	char	s[]="Bonjour !";
+	int		p = INT_MIN;
+	int 	q = INT_MAX;
 	void	*ptr;
 	void	*ptr2;
 
-	n = 0;
-	m = 0;
-	ptr = &n;
-	ptr2 = &m;
-	printf("%d", ft_printf(format, 0, 0));
-	printf("\n");
-	printf("%d", printf(format, 0, 0));
-	printf("\n");
+	ptr = &p;
+	ptr2 = &q;
+	printf("size = %d\n", ft_printf(format, c, s, 
+	(int)INT_MIN, INT_MAX, (int)INT_MIN, INT_MAX, 
+	(int)INT_MIN, INT_MAX, (int)INT_MIN, INT_MAX, 
+	(int)INT_MIN, INT_MAX, ptr, ptr2));
+	printf("size = %d\n", printf(format, c, s, 
+	(int)INT_MIN, INT_MAX, (int)INT_MIN, INT_MAX, 
+	(int)INT_MIN, INT_MAX, (int)INT_MIN, INT_MAX, 
+	(int)INT_MIN, INT_MAX, ptr, ptr2));
 	return (0);
 }*/
