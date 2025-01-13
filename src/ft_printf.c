@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-#include "../libft/libft.h"
+#include "../include/ft_printf.h"
+#include "../libft-main/include/libft.h"
 #include <stdarg.h>
 
 int	ft_printf2(char *format, va_list args);
@@ -120,15 +120,13 @@ int	ft_putnbr_unsigned(unsigned int n, const int fd)
 	return (size);
 }
 
-# include <stdio.h>
-
-int main (void)
+/*int main (void)
 {
 	ft_printf(" %p \n", 0);
 	printf(" %p \n", (void *)0);
 	return (0);
 }
-/*
+
 int main (void)
 {
 	const char format[]=" %c / %s / %d %d / %i %i /

@@ -12,29 +12,45 @@
 
 NAME			=	libftprintf.a
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror
-RM				=	rm -rf
-SRC 			=	src/ft_printf
+FLAG			=	-Wall -Wextra -Werror
 
-SRC_A			=	$(addsuffix .c, ${SRC})
+SRCDIR	= src
+OBJDIR	= obj
+HEADIR	= include
 
-OBJ				=	$(SRC_A:.c=.o)
+SRC		= $(shell find $(SRCDIR) -name '*.c')
+OBJ		= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+HEADER	= $(shell find $(HEADIR) -name '*.h')
 
-all:			$(NAME)
+LIBFT_DIR		=	libft-main
+LIBFT_URL		=	https://github.com/mgayout/libft/archive/refs/heads/main.tar.gz
+LIBFT_AR		=	libft.a
 
-lib :
-				make -C libft/
-				cp -rf libft/libft.a $(NAME)
+all:	$(NAME)
 
-$(NAME):		lib $(OBJ) 
-					ar -rc $(NAME) $(OBJ)
+$(NAME):	$(LIBFT_AR) $(OBJ)
+					@ar -rc $(NAME) $(OBJ)
+
+$(OBJDIR)/%.o : $(SRCDIR)/%.c $(HEADER)
+					@mkdir -p $(dir $@)
+					@gcc $(FLAG) -c $< -o $@
+
+$(LIBFT_AR): 
+					@curl -L $(LIBFT_URL) -o libft.tar.gz
+					@tar -xzf libft.tar.gz
+					@rm libft.tar.gz
+					@make -C $(LIBFT_DIR)
+					@cp $(LIBFT_DIR)/$(LIBFT_AR) .
 
 clean:
-					$(RM) $(OBJ) libft/*.o
+					@rm -rf	$(OBJDIR)
+					@make clean -C $(LIBFT_DIR)
 
-fclean: 		clean
-					$(RM) $(NAME) libft/libft.a
+fclean: clean
+					@rm -rf $(NAME)
+					@rm -rf $(LIBFT_DIR)
+					@rm -rf $(LIBFT_AR)
 
-re:				fclean all
+re:	fclean all
 
-.PHONY: 		all clean fclean re
+.PHONY: all clean fclean re
