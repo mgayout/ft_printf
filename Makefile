@@ -29,10 +29,13 @@ LIBFT_AR		=	libft.a
 all:	$(NAME)
 
 $(NAME):	$(LIBFT_AR) $(OBJ)
-					@ar -rc $(NAME) $(OBJ)
+					@cd $(OBJDIR) && ar -x $(LIBFT_AR) 
+					@ar -rc $(NAME) $(OBJDIR)/*.o
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(HEADER)
 					@mkdir -p $(dir $@)
+					@cd $(dir $@) && cp ../$(LIBFT_DIR)/$(LIBFT_AR) .
+					@rm -rf libft.a
 					@gcc $(FLAG) -c $< -o $@
 
 $(LIBFT_AR): 
@@ -49,7 +52,6 @@ clean:
 fclean: clean
 					@rm -rf $(NAME)
 					@rm -rf $(LIBFT_DIR)
-					@rm -rf $(LIBFT_AR)
 
 re:	fclean all
 
