@@ -27,3 +27,13 @@ Selon le sujet, la fonction `FT_PRINTF` ne doit que gérer les formats suivants 
 `%X` Ecrit un nombre en format héxadécimal (majuscule).
 
 `%%` Ecrit le caractère %.
+
+# INSTALL
+
+`make` permet de télécharger la librairie `LIBFT` (présente sur mon github) et d'en compiler le contenue afin d'obtenir l'archive `libft.a`, permettant de compiler `ft_printf.c`.
+
+`make clean` permet de supprimer tout les fichiers objets.
+
+`make fclean` reprends le principe de `make clean` en supprimant en plus l'archive `libft.a` et `libftprintf.a`.
+
+`make re` reprends le principe de `make fclean` en compilant de nouveau ma librairie.
