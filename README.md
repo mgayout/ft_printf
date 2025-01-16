@@ -1,8 +1,13 @@
-# FT_PRINTF
+# <p align="center">FT_PRINTF [Projet 42]</p>
 
-## 42 PROJECT
-
-![note](img/ftprintf.png)
+<div align="center">
+	<table>
+		<tr><th>NOTE</th>
+		<th>ENGLISH VERSION</th></tr>
+		<tr><th><img src="https://github.com/mgayout/mgayout/blob/main/img/note/100.png" height="100"></th>
+		<th><a href= "https://github.com/mgayout/ft_printf/blob/main/eng/README.md"><img src="https://github.com/mgayout/mgayout/blob/main/img/english.png" height="100"></a></th></tr>
+	</table>
+</div>
 
 Le projet `FT_PRINTF` a pour but de nous faire découvrir la fonction `printf()`.
 
@@ -28,12 +33,25 @@ Selon le sujet, la fonction `FT_PRINTF` ne doit que gérer les formats suivants 
 
 `%%` Ecrit le caractère %.
 
-# INSTALL
+## <p> </p>
 
-`make` permet de télécharger la librairie `LIBFT` (présente sur mon github) et d'en compiler le contenue afin d'obtenir l'archive `libft.a`, permettant de compiler `ft_printf.c`.
+## <p align="center">INSTALLATION</p>
 
-`make clean` permet de supprimer tout les fichiers objets.
+* Pour télécharger `FT_PRINTF` :
 
-`make fclean` reprends le principe de `make clean` en supprimant en plus l'archive `libft.a` et `libftprintf.a`.
-
-`make re` reprends le principe de `make fclean` en compilant de nouveau ma librairie.
+```shell
+git clone https://github.com/mgayout/ft_printf.git
+```
+<div align="center">
+	<table>
+		<tr><th colspan="2" align="center">Règles</th></tr>
+		<tr><td align="center">make</td>
+		<td>Compilation</td></tr>
+		<tr><td align="center">make clean</td>
+		<td>Suppression des fichiers objets</td></tr>
+		<tr><td align="center">make fclean</td>
+		<td>Suppression des fichiers objets et de l'archive libftprintf.a </td></tr>
+		<tr><td align="center">make re</td>
+		<td>Suppression des fichiers objets et de l'archive suivi d'une compilation</td></tr>
+	</table>
+</div>
