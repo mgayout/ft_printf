@@ -10,48 +10,48 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	libftprintf.a
-CC				=	gcc
-FLAG			=	-Wall -Wextra -Werror
+NAME		=	libftprintf.a
+CC			=	gcc
+FLAG		=	-Wall -Wextra -Werror
 
-SRCDIR	= src
-OBJDIR	= obj
-HEADIR	= include
+SRCDIR		= src
+OBJDIR		= obj
+HEADIR		= include
 
-SRC		= $(shell find $(SRCDIR) -name '*.c')
-OBJ		= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
-HEADER	= $(shell find $(HEADIR) -name '*.h')
+SRC			= $(shell find $(SRCDIR) -name '*.c')
+OBJ			= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+HEADER		= $(shell find $(HEADIR) -name '*.h')
 
-LIBFT_DIR		=	libft-main
-LIBFT_URL		=	https://github.com/mgayout/libft/archive/refs/heads/main.tar.gz
-LIBFT_AR		=	libft.a
+LIBFT_DIR	=	libft-main
+LIBFT_URL	=	https://github.com/mgayout/libft/archive/refs/heads/main.tar.gz
+LIBFT_AR	=	libft.a
 
-all:	$(NAME)
+all: $(NAME)
 
-$(NAME):	$(LIBFT_AR) $(OBJ)
-					@cd $(OBJDIR) && ar -x $(LIBFT_AR) 
-					@ar -rc $(NAME) $(OBJDIR)/*.o
+$(NAME): $(LIBFT_AR) $(OBJ)
+	@cd $(OBJDIR) && ar -x $(LIBFT_AR) 
+	@ar -rc $(NAME) $(OBJDIR)/*.o
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(HEADER)
-					@mkdir -p $(dir $@)
-					@cd $(dir $@) && cp ../$(LIBFT_DIR)/$(LIBFT_AR) .
-					@rm -rf libft.a
-					@gcc $(FLAG) -c $< -o $@
+	@mkdir -p $(dir $@)
+	@cd $(dir $@) && cp ../$(LIBFT_DIR)/$(LIBFT_AR) .
+	@rm -rf libft.a
+	@gcc $(FLAG) -c $< -o $@
 
 $(LIBFT_AR): 
-					@curl -L $(LIBFT_URL) -o libft.tar.gz
-					@tar -xzf libft.tar.gz
-					@rm libft.tar.gz
-					@make -C $(LIBFT_DIR)
-					@cp $(LIBFT_DIR)/$(LIBFT_AR) .
+	@curl -L $(LIBFT_URL) -o libft.tar.gz
+	@tar -xzf libft.tar.gz
+	@rm libft.tar.gz
+	@make -C $(LIBFT_DIR)
+	@cp $(LIBFT_DIR)/$(LIBFT_AR) .
 
 clean:
-					@rm -rf	$(OBJDIR)
-					@make clean -C $(LIBFT_DIR)
+	@rm -rf	$(OBJDIR)
+	@make clean -C $(LIBFT_DIR)
 
 fclean: clean
-					@rm -rf $(NAME)
-					@rm -rf $(LIBFT_DIR)
+	@rm -rf $(NAME)
+	@rm -rf $(LIBFT_DIR)
 
 re:	fclean all
 
