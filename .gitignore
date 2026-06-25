@@ -1,0 +1,19 @@
+# Binaries
+ft_printf
+
+# Dependencies
+libft-main/
+
+# IDE / editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Compiled objects / libraries
+*.o
+*.a
+
+# Downloaded archives
+*.tar.gz
